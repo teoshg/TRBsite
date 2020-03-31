@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="container">
+    <h5 class="mt-5">Identificação</h5>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <h4>Já é cliente?</h4>
+            <p>Se você já fez um pedido e cadastrou uma conta, coloque os dados da conta abaixo:</p>
+            <form [formGroup]="formulario">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input [(ngModel)]="usuario.email" type="email" class="form-control" formControlName="email" id="email">
+                    <small id="email" class="form-text text-muted">Nunca compartilharemos seu email com mais ninguém.</small>
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input [(ngModel)]="usuario.senha" type="password" class="form-control" formControlName="senha" id="senha">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm btn-block" (click)="fazerLogin()"><b>Login</b></button>
+                    <a href="#" class="card-link">Esqueceu a senha ?</a>
+                </div> 
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <h4>Ainda não é cliente?</h4>
+            <h6>Cadastre-se</h6>
+            <p>
+                Ao cadastrar sua conta, você será capaz de comprar mais rápido,
+                ficar atualizado sobre a situação de um pedido e acompanhar o histórico dos pedidos que você já fez.
+            </p>
+            <button type="button" class="btn btn-secondary">Cadastro</button>
+        </div>
+    </div>
+</div>
