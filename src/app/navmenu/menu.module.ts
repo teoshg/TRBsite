@@ -4,6 +4,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ContatoComponent } from './contato/contato.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 
 
@@ -11,6 +13,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     HomeComponent,
     LoginComponent,
+    ContatoComponent,
+    CadastroComponent,
   ],
   imports: [
     CommonModule,
