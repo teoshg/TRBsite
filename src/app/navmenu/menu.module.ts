@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ContatoComponent } from './contato/contato.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { ErrorMsgComponent } from './error-msg/error-msg.component';
 
 
 
@@ -15,6 +16,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     LoginComponent,
     ContatoComponent,
     CadastroComponent,
+    ErrorMsgComponent,
   ],
   imports: [
     CommonModule,

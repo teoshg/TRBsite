@@ -1,5 +1,5 @@
 import { Usuario } from './usuario';
-import { MenuService } from './../menu.service';
+import { MenuService } from '../menu.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 

@@ -3,12 +3,15 @@
     <hr>
     <div class="row">
         <div class="col-sm-8">
-            <form>
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" placeholder="Nome">
+                            <input type="text" class="form-control" id="nome" placeholder="Nome"
+                                [class.is-invalid]="!controleDeFormulario.nome.valid && controleDeFormulario.nome.touched"
+                                formControlName="nome">
+                                <app-error-msg [control]="formulario.get('nome')" label="Nome"></app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -16,20 +19,28 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="cidade">CEP</label>
-                            <input type="text" class="form-control" id="cidade" placeholder="CEP">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control" id="cep"
+                                [class.is-invalid]="!controleDeFormulario.cep.valid && controleDeFormulario.cep.touched"
+                                formControlName="cep" (blur)="consultaCEP()">
+                                <app-error-msg [control]="formulario.get('cep')" label="CEP"></app-error-msg>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="estado">Bairro</label>
-                            <input type="text" class="form-control" id="estado" placeholder="Bairro">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" class="form-control" id="bairro"
+                                [class.is-invalid]="!controleDeFormulario.bairro.valid && controleDeFormulario.bairro.touched"
+                                formControlName="bairro">
+                                <app-error-msg [control]="formulario.get('bairro')" label="Bairro"></app-error-msg>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="cep">Número</label>
-                            <input type="text" class="form-control" id="estado" placeholder="Número">
+                            <label for="numero">Número</label>
+                            <input type="text" class="form-control" id="numero"
+                                [class.is-invalid]="!controleDeFormulario.numero.valid && controleDeFormulario.numero.touched"
+                                formControlName="numero">
                         </div>
                     </div>
                 </div>
@@ -37,8 +48,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="endereço">Rua</label>
-                            <input type="text" class="form-control" id="endereço" placeholder="Rua">
+                            <label for="rua">Rua</label>
+                            <input type="text" class="form-control" id="rua"
+                                [class.is-invalid]="!controleDeFormulario.rua.valid && controleDeFormulario.rua.touched"
+                                formControlName="rua">
+                                <app-error-msg [control]="formulario.get('rua')" label="Rua"></app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -47,13 +61,31 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="Email" placeholder="nome@email.com">
+                            <input type="email" class="form-control" id="email" placeholder="nome@email.com"
+                                [class.is-invalid]="!controleDeFormulario.email.valid && controleDeFormulario.email.touched"
+                                formControlName="email">
+                            <div *ngIf="formulario.get('email').status === 'PENDING'" class="alert alert-warning"
+                                role="alert">
+                                Email está sendo validado...
+                            </div>
+                            <div *ngIf="formulario.get('email').status === 'VALID'" class="alert alert-success"
+                                role="alert">
+                                Email válido!
+                            </div>
+                            <div *ngIf="formulario.get('email').hasError('emailInvalido')" class="alert alert-danger"
+                                role="alert">
+                                Email já cadastrado!
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="confirmarEmail">Confirme Email</label>
-                            <input type="confirmarEmail" class="form-control" id="confirmarEmail" placeholder="nome@email.com">
+                            <input type="confirmarEmail" class="form-control" id="confirmarEmail"
+                                placeholder="nome@email.com"
+                                [class.is-invalid]="!controleDeFormulario.confirmarEmail.valid && controleDeFormulario.confirmarEmail.touched"
+                                formControlName="confirmarEmail">
+                                <app-error-msg [control]="formulario.get('confirmarEmail')" label="Confirmar Email"></app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -61,14 +93,22 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="senha">Password</label>
-                            <input type="password" class="form-control" id="senha">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Senha"
+                                [class.is-invalid]="!controleDeFormulario.password.valid && controleDeFormulario.password.touched"
+                                formControlName="password">
+                                <app-error-msg [control]="formulario.get('password')" label="Senha"></app-error-msg>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="confirmePassword">Confirme Password</label>
-                            <input type="password" class="form-control" id="confirmePassword">
+                            <label for="confirmePassword">Repetir a senha</label>
+                            <input type="password" class="form-control" id="confirmePassword"
+                                placeholder="Repetir a senha"
+                                [class.is-invalid]="!controleDeFormulario.confirmePassword.valid && controleDeFormulario.confirmePassword.touched"
+                                formControlName="confirmePassword">
+                                <app-error-msg [control]="formulario.get('confirmePassword')" label="Confirmar senha"></app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -84,7 +124,8 @@
         </div>
         <div class="col-sm-4">
             <h6>Sou um novo cliente.</h6>
-            <p>Ao cadastrar-se e criar uma conta você poderá comprar mais rapidamente, saber a situação de seus pedidos e acompanhar as compras já realizadas.</p>
+            <p>Ao cadastrar-se e criar uma conta você poderá comprar mais rapidamente, saber a situação de seus pedidos
+                e acompanhar as compras já realizadas.</p>
         </div>
     </div>
 </div>

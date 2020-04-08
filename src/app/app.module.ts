@@ -1,3 +1,4 @@
+import { ContatoComponent } from './navmenu/contato/contato.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,7 +15,7 @@ import { MenuModule } from './navmenu/menu.module';
     AppRoutingModule,
     MenuModule,
   ],
-  providers: [],
+  providers: [ContatoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
