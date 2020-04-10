@@ -2,6 +2,7 @@ import { Usuario } from './usuario';
 import { MenuService } from '../menu.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private menuService: MenuService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -34,5 +36,9 @@ export class LoginComponent implements OnInit {
 
   fazerLogin(){
     this.menuService.fazerLogin(this.usuario);
+  }
+
+  mudarRota(){
+    this.router.navigate(['/cadastro']);
   }
 }

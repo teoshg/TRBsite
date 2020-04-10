@@ -1,20 +1,91 @@
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Contato por email</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+<div class="container">
+    <h4 class="mt-5">Contato</h4>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">
+            <h5>Endereço: </h5>
+            <h6>
+                Av. Visconde de Guarapuava, 3067 - Loja 04 fundos ao lado da Maternidade Nossa SRA. De Fátima.
+            </h6>
+            <h6>
+                Telefone: <a href="tel:+5504132228160">(41)3222-8160</a>
+            </h6>
+            <h5 class="mt-5">
+                Contato pelo formulário:
+            </h5>
+            <p>
+                Nosso formulário serve para um contato com mais eficiência,
+                porfavor digite seus dados corretamente. Use-o para tirar suas dúvidas
+                se tiver alguma em questão, caso necessite da fabricação do produto (borracha)
+                utilize-o para mandar imagens e especificações do que deseja (tamanho, largura e etc).
+            </p>
+            <h6>
+                Entregas:
+            </h6>
+            <p>
+                Se você necessitar que seu produto seja entregue em seu estabelecimento ou residência,
+                deixar especificado na caixa de mensagem após a especificação do seu produto.
+                <u>Sujeito a taxa de entregas!</u>
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome"
+                        [class.is-invalid]="!controleDeFormulario.nome.valid && controleDeFormulario.nome.touched"
+                        id="nome" placeholder="Nome">
+                    <app-error-msg [control]="formulario.get('nome')" label="Nome"></app-error-msg>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email"
+                        [class.is-invalid]="!controleDeFormulario.email.valid && controleDeFormulario.email.touched"
+                        placeholder="Email" id="email">
+                    <app-error-msg [control]="formulario.get('email')" label="Email"></app-error-msg>
+                </div>
+                <div class="form-group">
+                    <label for="confirmarEmail">Confirmar email</label>
+                    <input type="email" class="form-control" formControlName="confirmarEmail"
+                        [class.is-invalid]="!controleDeFormulario.confirmarEmail.valid && controleDeFormulario.confirmarEmail.touched"
+                        placeholder="Confirmar email" id="confirmarEmail">
+                    <app-error-msg [control]="formulario.get('confirmarEmail')" label="Confirmar Email"></app-error-msg>
+                    <small id="confirmarEmail" class="form-text text-muted">Nunca compartilharemos seu email com mais
+                        ninguém.</small>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" class="form-control" formControlName="telefone"
+                                placeholder="Telefone Fixo" id="telefone">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="celular">Celular</label>
+                            <input type="tel" class="form-control" formControlName="celular" 
+                                placeholder="Celular" id="celular">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Mensagem e especificações para fabricação</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm btn-block"><b>Enviar</b></button>
+                </div>
+            </form>
         </div>
     </div>
+    <hr>
+    <h5>Ainda não é cliente?</h5>
+    <h6>Cadastre-se</h6>
+    <p>
+        Ao cadastrar sua conta, você será capaz de comprar mais rápido,
+        ficar atualizado sobre a situação de um pedido e acompanhar o histórico dos pedidos que você já fez.
+    </p>
+    <button type="button" class="btn btn-secondary" (click)="mudarRota()">Cadastro</button>
+    <hr>
 </div>

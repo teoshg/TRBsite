@@ -1,9 +1,9 @@
 <div class="container">
-    <h5 class="mt-5">Identificação</h5>
+    <h4 class="mt-5">Identificação</h4>
     <hr>
     <div class="row">
         <div class="col-sm-6">
-            <h4>Já é cliente?</h4>
+            <h5>Já é cliente?</h5>
             <p>Se você já fez um pedido e cadastrou uma conta, coloque os dados da conta abaixo:</p>
             <form [formGroup]="formulario">
                 <div class="form-group">
@@ -22,13 +22,13 @@
             </form>
         </div>
         <div class="col-sm-6">
-            <h4>Ainda não é cliente?</h4>
+            <h5>Ainda não é cliente?</h5>
             <h6>Cadastre-se</h6>
             <p>
                 Ao cadastrar sua conta, você será capaz de comprar mais rápido,
                 ficar atualizado sobre a situação de um pedido e acompanhar o histórico dos pedidos que você já fez.
             </p>
-            <button type="button" class="btn btn-secondary">Cadastro</button>
+            <button type="button" class="btn btn-secondary" (click)="mudarRota()">Cadastro</button>
         </div>
     </div>
 </div>
