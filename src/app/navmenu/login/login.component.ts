@@ -38,7 +38,5 @@ export class LoginComponent implements OnInit {
     this.menuService.fazerLogin(this.usuario);
   }
 
-  mudarRota(){
-    this.router.navigate(['/cadastro']);
-  }
+  
 }

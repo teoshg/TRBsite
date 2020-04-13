@@ -54,7 +54,5 @@ export class ContatoComponent implements OnInit {
     }
   }
 
-  mudarRota() {
-    this.router.navigate(['/cadastro']);
-  }
+  
 }

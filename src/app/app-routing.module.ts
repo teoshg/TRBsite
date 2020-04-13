@@ -1,3 +1,4 @@
+import { RecuperarContaComponent } from './navmenu/recuperar-conta/recuperar-conta.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './navmenu/home/home.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'entrar', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'contato', component: ContatoComponent },
+  { path: 'recuperar', component: RecuperarContaComponent },
   {
     path: '',
     pathMatch: 'full',
