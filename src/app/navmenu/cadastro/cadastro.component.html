@@ -11,7 +11,7 @@
                             <input type="text" class="form-control" id="nome" placeholder="Nome"
                                 [class.is-invalid]="!controleDeFormulario.nome.valid && controleDeFormulario.nome.touched"
                                 formControlName="nome">
-                                <app-error-msg [control]="formulario.get('nome')" label="Nome"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('nome')" label="Nome"></app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                             <input type="text" class="form-control" id="cep"
                                 [class.is-invalid]="!controleDeFormulario.cep.valid && controleDeFormulario.cep.touched"
                                 formControlName="cep" (blur)="consultaCEP()">
-                                <app-error-msg [control]="formulario.get('cep')" label="CEP"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('cep')" label="CEP"></app-error-msg>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -32,7 +32,7 @@
                             <input type="text" class="form-control" id="bairro"
                                 [class.is-invalid]="!controleDeFormulario.bairro.valid && controleDeFormulario.bairro.touched"
                                 formControlName="bairro">
-                                <app-error-msg [control]="formulario.get('bairro')" label="Bairro"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('bairro')" label="Bairro"></app-error-msg>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -52,7 +52,7 @@
                             <input type="text" class="form-control" id="rua"
                                 [class.is-invalid]="!controleDeFormulario.rua.valid && controleDeFormulario.rua.touched"
                                 formControlName="rua">
-                                <app-error-msg [control]="formulario.get('rua')" label="Rua"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('rua')" label="Rua"></app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,8 @@
                                 placeholder="nome@email.com"
                                 [class.is-invalid]="!controleDeFormulario.confirmarEmail.valid && controleDeFormulario.confirmarEmail.touched"
                                 formControlName="confirmarEmail">
-                                <app-error-msg [control]="formulario.get('confirmarEmail')" label="Confirmar Email"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('confirmarEmail')" label="Confirmar Email">
+                            </app-error-msg>
                         </div>
                     </div>
                 </div>
@@ -94,11 +95,10 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="password">Senha</label>
-                            <input type="password" class="form-control" id="password"
-                                placeholder="Senha"
+                            <input type="password" class="form-control" id="password" placeholder="Senha"
                                 [class.is-invalid]="!controleDeFormulario.password.valid && controleDeFormulario.password.touched"
                                 formControlName="password">
-                                <app-error-msg [control]="formulario.get('password')" label="Senha"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('password')" label="Senha"></app-error-msg>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -108,16 +108,22 @@
                                 placeholder="Repetir a senha"
                                 [class.is-invalid]="!controleDeFormulario.confirmePassword.valid && controleDeFormulario.confirmePassword.touched"
                                 formControlName="confirmePassword">
-                                <app-error-msg [control]="formulario.get('confirmePassword')" label="Confirmar senha"></app-error-msg>
+                            <app-error-msg [control]="formulario.get('confirmePassword')" label="Confirmar senha">
+                            </app-error-msg>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Aceite os
-                        <a href="#">termos</a>
-                    </label>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="termos" formControlName="termos"
+                                [class.is-invalid]="!formulario.get('termos').valid">
+                            <label class="form-check-label" for="termos">Aceite os
+                                <a href="#" data-toggle="modal" data-target="#exampleModalLong">termos</a>
+                            </label>
+                        </div>
+                    </div>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -127,7 +133,29 @@
         <div class="col-sm-4">
             <h5>Sou um novo cliente.</h5>
             <p>Ao cadastrar-se e criar uma conta você poderá comprar mais rapidamente, saber a situação de seus pedidos
-                e acompanhar as compras já realizadas.</p>
+                e acompanhar as compras já realizadas.
+            </p>
+        </div>
+    </div>
+</div>
+<br>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Termos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>

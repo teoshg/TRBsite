@@ -1,2 +1,35 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
 
-<p> testando </p>
+        <div class="card mt-5" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">Deseja recuperar ?</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Coloque seu email registrado abaixo:</h6>
+                <br>
+                <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-group input-custom">
+                            <input type="email" class="form-control" formControlName="email" id="email">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <small id="email" class="form-text text-muted">Nunca compartilharemos seu email com mais
+                            ninguém.
+                        </small>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-sm btn-block">
+                            <b>Enviar</b>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -34,6 +34,7 @@ export class CadastroComponent implements OnInit {
       confirmarEmail: [null, [Validators.required, FormValidations.equalsTo('email')]],
       password: [null,[Validators.required, Validators.minLength(5), Validators.maxLength(9)]],
       confirmePassword: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(9), FormValidations.equalsTo('password')]],
+      termos: [null, [Validators.required]],
     });
 
   }
@@ -47,7 +48,7 @@ export class CadastroComponent implements OnInit {
       this.http.post('https://httpbin.org/post', JSON.stringify({}))
         .pipe(map(res => res))
         .subscribe(dados => {
-          console.log(dados);
+          console.log(this.formulario);
         },
 
         );
